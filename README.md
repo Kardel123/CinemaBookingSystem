@@ -93,6 +93,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Netflix for design inspiration
 - Movie rating platforms (IMDB, Rotten Tomatoes, Metacritic)
 - Streaming services (Netflix, HBO Max, Disney+) for brand partnerships
+<<<<<<< HEAD
 
 # Hi there, I'm Ed Josue Posa! 👋
 
@@ -173,3 +174,5 @@ I drive a Hyundai Accent 2017 - Because developers need reliable wheels too!
 </div>
 
 ⭐️ From [Ed Josue Posa](https://github.com/Kardel123)
+=======
+>>>>>>> f024778de44b67c608344386a5b6a039c8f44884
