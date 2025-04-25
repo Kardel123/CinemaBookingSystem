@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MoviesController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BookingController;
+use App\Models\Movie;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +18,23 @@ use App\Http\Controllers\MoviesController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $movies = Movie::all();
+    return view('welcome', compact('movies'));
 });
 
 Route::get('/movies', [MoviesController::class, 'index'])->name('movies');
+
+// Authentication Routes
+Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
+Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+// Booking Routes
+Route::middleware(['auth'])->group(function () {
+    Route::get('/bookings', [BookingController::class, 'index'])->name('bookings.index');
+    Route::get('/bookings/create/{movieId}', [BookingController::class, 'showBookingForm'])->name('bookings.create');
+    Route::post('/bookings', [BookingController::class, 'store'])->name('bookings.store');
+    Route::get('/bookings/{id}', [BookingController::class, 'show'])->name('bookings.show');
+});

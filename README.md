@@ -1,66 +1,175 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Cinema Booking System 🎬
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A modern, Netflix-inspired cinema ticket booking system built with Laravel and Tailwind CSS.
 
-## About Laravel
+## Features ✨
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- **Modern UI/UX**: Sleek, Netflix-inspired design with a dynamic movie poster background
+- **Responsive Design**: Fully responsive layout that works on all devices
+- **Interactive Elements**: 
+  - Smooth hover effects
+  - Dynamic brand logo transitions
+  - Beautiful backdrop blur effects
+- **Authentication System**: Secure user login and registration system
+- **Movie Integration**: Integration with popular movie platforms and rating systems
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Tech Stack 🛠️
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- **Backend**: Laravel PHP Framework
+- **Frontend**: 
+  - Tailwind CSS for styling
+  - Alpine.js for interactivity
+  - Blade templating engine
+- **Assets**: 
+  - SVG logos for crisp display
+  - Dynamic movie poster grid
+  - Responsive image handling
 
-## Learning Laravel
+## Getting Started 🚀
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Prerequisites
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- PHP >= 8.1
+- Composer
+- Node.js & NPM
+- MySQL
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Installation
 
-## Laravel Sponsors
+1. Clone the repository
+```bash
+git clone https://github.com/yourusername/cinema-booking-system.git
+cd cinema-booking-system
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+2. Install PHP dependencies
+```bash
+composer install
+```
 
-### Premium Partners
+3. Install NPM packages
+```bash
+npm install
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+4. Create and configure your environment file
+```bash
+cp .env.example .env
+php artisan key:generate
+```
 
-## Contributing
+5. Configure your database in `.env`
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+6. Run migrations
+```bash
+php artisan migrate
+```
 
-## Code of Conduct
+7. Link storage
+```bash
+php artisan storage:link
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+8. Start the development server
+```bash
+php artisan serve
+```
 
-## Security Vulnerabilities
+9. In a new terminal, start Vite for asset compilation
+```bash
+npm run dev
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Contributing 🤝
 
-## License
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## License 📝
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments 🙏
+
+- Netflix for design inspiration
+- Movie rating platforms (IMDB, Rotten Tomatoes, Metacritic)
+- Streaming services (Netflix, HBO Max, Disney+) for brand partnerships
+
+# Hi there, I'm Ed Josue Posa! 👋
+
+<div align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=00FF00&center=true&vCenter=true&width=435&lines=Computer+Science+Student;Aspiring+Full+Stack+Developer;Always+Learning+New+Things" alt="Typing SVG" />
+</div>
+
+## About Me 👨‍💻
+
+I'm an aspiring Computer Science student passionate about programming and technology. Currently exploring the vast world of software development and always eager to learn new technologies.
+
+### 🚗 Fun Fact
+I drive a Hyundai Accent 2017 - Because developers need reliable wheels too! 
+
+<div align="center">
+  <img src="https://65e81151f52e248c552b-fe74cd567ea2f1228f846834bd67571e.ssl.cf1.rackcdn.com/ldm-images/2017-Hyundai-Accent-Triathlon-Grey-ca.png" width="400" alt="My Hyundai Accent">
+</div>
+
+## Tech Stack 🛠️
+
+### Languages
+![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+
+### Frameworks & Libraries
+![Laravel](https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
+![jQuery](https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white)
+
+### Tools & Platforms
+![Cursor](https://img.shields.io/badge/Cursor-000000?style=for-the-badge&logo=cursor&logoColor=white)
+![VS Code](https://img.shields.io/badge/VS_Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+
+### Favorite IDE
+<div align="center">
+  <a href="https://cursor.sh">
+    <img src="https://cursor.sh/brand/logo-dark.svg" width="300" alt="Cursor - The AI-first Code Editor">
+  </a>
+  <p><i>My go-to IDE powered by AI 🤖✨</i></p>
+</div>
+
+## Currently Learning 📚
+- Advanced Laravel Development
+- Modern JavaScript Frameworks
+- Database Design & Optimization
+- UI/UX Best Practices
+- AI-Powered Development with Cursor
+
+## GitHub Stats 📊
+
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=Kardel123&show_icons=true&theme=radical" alt="GitHub Stats">
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Kardel123&theme=radical" alt="GitHub Streak">
+</div>
+
+## Let's Connect! 🤝
+
+<div align="center">
+  
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](YOUR_LINKEDIN_URL)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](YOUR_GITHUB_URL)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:YOUR_EMAIL)
+
+</div>
+
+---
+
+<div align="center">
+  <img src="https://1000logos.net/wp-content/uploads/2018/04/Hyundai-Logo-500x281.png" width="200" alt="Hyundai Logo">
+  <br>
+  <i>🚧 Some areas of my profile are under construction as I continue to grow and learn! 🚧</i>
+</div>
+
+⭐️ From [Ed Josue Posa](https://github.com/Kardel123)

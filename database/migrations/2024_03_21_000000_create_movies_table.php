@@ -11,13 +11,11 @@ return new class extends Migration
         Schema::create('movies', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('genre');
             $table->text('description');
             $table->string('duration');
-            $table->date('release_date');
-            $table->string('rating');
-            $table->string('image');
-            $table->enum('status', ['now_showing', 'coming_soon'])->default('now_showing');
+            $table->string('genre');
+            $table->string('image_url')->nullable();
+            $table->decimal('price', 10, 2);
             $table->timestamps();
         });
     }
