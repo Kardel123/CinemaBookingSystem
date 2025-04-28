@@ -14,159 +14,199 @@
 
 <style>
     .ticket-container {
-        max-width: 800px;
-        margin: 0 auto;
+        max-width: 900px;
+        margin: 40px auto;
         background: #fff;
-        border-radius: 10px;
-        box-shadow: 0 0 20px rgba(0,0,0,0.1);
-        position: relative;
+        border: 1px solid #bbb;
+        border-radius: 6px;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.08);
         overflow: hidden;
+        font-family: 'Segoe UI', Arial, sans-serif;
     }
     .ticket-header {
-        background: linear-gradient(45deg, #1a1a1a, #333);
-        color: white;
-        padding: 2rem;
-        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 24px 32px 12px 32px;
+        border-bottom: 1px solid #eee;
+        background: #fafbfc;
+    }
+    .ticket-header h2 {
+        font-size: 1.6rem;
+        font-weight: 600;
+        margin: 0;
+    }
+    .ticket-main {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0;
         position: relative;
-    }
-    .ticket-header::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 5px;
-        background: repeating-linear-gradient(
-            90deg,
-            #fff,
-            #fff 10px,
-            transparent 10px,
-            transparent 20px
-        );
-    }
-    .ticket-body {
-        padding: 2rem;
-        position: relative;
-    }
-    .ticket-body::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 5px;
-        background: repeating-linear-gradient(
-            90deg,
-            #fff,
-            #fff 10px,
-            transparent 10px,
-            transparent 20px
-        );
     }
     .ticket-details {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
+        flex: 2;
+        padding: 32px 32px 24px 32px;
+        min-width: 320px;
     }
-    .ticket-detail {
-        padding: 1rem;
-        background: #f8f9fa;
-        border-radius: 5px;
+    .ticket-details .ticket-title {
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin-bottom: 8px;
     }
-    .ticket-detail-label {
-        font-size: 0.9rem;
-        color: #666;
-        margin-bottom: 0.5rem;
+    .ticket-details .ticket-location {
+        font-size: 1rem;
+        color: #222;
+        margin-bottom: 8px;
     }
-    .ticket-detail-value {
+    .ticket-details .ticket-datetime {
+        font-weight: 700;
+        margin-bottom: 18px;
         font-size: 1.1rem;
+    }
+    .ticket-details .ticket-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+        margin-top: 18px;
+        font-size: 1rem;
+    }
+    .ticket-details .ticket-meta-label {
+        color: #666;
+        font-size: 0.95rem;
         font-weight: 500;
     }
-    .ticket-footer {
-        background: #f8f9fa;
-        padding: 1.5rem;
-        text-align: center;
-        border-top: 1px dashed #ddd;
+    .ticket-details .ticket-meta-value {
+        font-weight: 600;
+        color: #222;
     }
-    .ticket-number {
-        font-family: 'Courier New', monospace;
-        font-size: 1.2rem;
-        color: #e50914;
-        margin-bottom: 1rem;
+    .ticket-qr-section {
+        flex: 1;
+        min-width: 220px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        background: #f7f7f7;
+        padding: 32px 0;
     }
-    .ticket-qr {
+    .ticket-movie-poster {
+        width: 150px;
+        height: 220px;
+        object-fit: cover;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+        margin-bottom: 18px;
+        background: #eee;
+    }
+    .ticket-qr-inner {
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .ticket-qr-inner img, .ticket-qr-inner svg {
         width: 150px;
         height: 150px;
-        margin: 1rem auto;
-        padding: 10px;
-        background: white;
-        border-radius: 5px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        margin-bottom: 10px;
     }
-    .ticket-qr img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
+    .ticket-footer {
+        text-align: center;
+        color: #888;
+        font-size: 0.95rem;
+        padding: 12px 0 10px 0;
+        background: #fafbfc;
+        border-top: 1px solid #eee;
     }
-    @media print {
-        .ticket-container {
-            box-shadow: none;
+    /* Perforation (cutout) effect */
+    .ticket-perforation {
+        position: absolute;
+        top: 32px;
+        bottom: 32px;
+        left: calc(66.66% - 16px); /* Adjust based on flex ratio */
+        width: 0;
+        border-left: 2px dashed #bbb;
+        z-index: 2;
+        pointer-events: none;
+    }
+    .ticket-perforation-dot {
+        position: absolute;
+        left: -8px;
+        width: 16px;
+        height: 16px;
+        background: #fff;
+        border-radius: 50%;
+        border: 2px solid #bbb;
+        z-index: 3;
+    }
+    .ticket-perforation-dot.top {
+        top: -16px;
+    }
+    .ticket-perforation-dot.bottom {
+        bottom: -16px;
+    }
+    @media (max-width: 700px) {
+        .ticket-main {
+            flex-direction: column;
         }
-        .ticket-header::after,
-        .ticket-body::before {
+        .ticket-details {
+            border-right: none;
+            border-bottom: 1px solid #eee;
+        }
+        .ticket-qr-section {
+            padding: 24px 0;
+        }
+        .ticket-perforation, .ticket-perforation-dot {
             display: none;
-        }
-        .ticket-footer {
-            border-top: 1px solid #ddd;
         }
     }
 </style>
 
-<div class="container py-5">
-    <div class="ticket-container">
-        <div class="ticket-header">
-            <h2 class="mb-3">Movie Ticket</h2>
-            <div class="ticket-number">Ticket #{{ $booking->ticket_number }}</div>
-        </div>
-        
-        <div class="ticket-body">
-            <div class="ticket-details">
-                <div class="ticket-detail">
-                    <div class="ticket-detail-label">Movie</div>
-                    <div class="ticket-detail-value">{{ $booking->movie->title }}</div>
+<div class="ticket-container">
+    <div class="ticket-header">
+        <h2>This is your ticket</h2>
+    </div>
+    <div class="ticket-main">
+        <div class="ticket-details">
+            <div class="ticket-title">{{ $booking->movie->title }}</div>
+            <div class="ticket-location">Cinema Hall, {{ config('app.name') }}</div>
+            <div class="ticket-datetime">
+                {{ \Carbon\Carbon::parse($booking->booking_date)->format('M d, Y') }}, {{ $booking->show_time }}
+            </div>
+            <div class="ticket-meta">
+                <div>
+                    <div class="ticket-meta-label">ISSUED TO</div>
+                    <div class="ticket-meta-value">{{ $booking->user->name }}</div>
                 </div>
-                <div class="ticket-detail">
-                    <div class="ticket-detail-label">Date</div>
-                    <div class="ticket-detail-value">{{ $booking->booking_date->format('F d, Y') }}</div>
+                <div>
+                    <div class="ticket-meta-label">ORDER NUMBER</div>
+                    <div class="ticket-meta-value">{{ $booking->ticket_number }}<br><span style="font-size:0.9em; color:#888;">Registered<br>{{ \Carbon\Carbon::parse($booking->created_at)->format('M d, Y') }}</span></div>
                 </div>
-                <div class="ticket-detail">
-                    <div class="ticket-detail-label">Show Time</div>
-                    <div class="ticket-detail-value">{{ $booking->show_time }}</div>
+                <div>
+                    <div class="ticket-meta-label">TICKET</div>
+                    <div class="ticket-meta-value">{{ $booking->movie->title }}<br>Seat: {{ $booking->seat_number }}</div>
                 </div>
-                <div class="ticket-detail">
-                    <div class="ticket-detail-label">Seat</div>
-                    <div class="ticket-detail-value">{{ $booking->seat_number }}</div>
-                </div>
-                <div class="ticket-detail">
-                    <div class="ticket-detail-label">Amount</div>
-                    <div class="ticket-detail-value">${{ number_format($booking->total_amount, 2) }}</div>
-                </div>
-                <div class="ticket-detail">
-                    <div class="ticket-detail-label">Status</div>
-                    <div class="ticket-detail-value">
-                        <span class="badge bg-success">{{ ucfirst($booking->booking_status) }}</span>
-                    </div>
+                <div>
+                    <div class="ticket-meta-label">AMOUNT</div>
+                    <div class="ticket-meta-value">${{ number_format($booking->total_amount, 2) }}</div>
                 </div>
             </div>
         </div>
-
-        <div class="ticket-footer">
-            <div class="ticket-qr">
+        <!-- Perforation (cutout) -->
+        <div class="ticket-perforation">
+            <div class="ticket-perforation-dot top"></div>
+            <div class="ticket-perforation-dot bottom"></div>
+        </div>
+        <div class="ticket-qr-section">
+            <img src="{{ $booking->movie->image_url }}" alt="{{ $booking->movie->title }}" class="ticket-movie-poster">
+            <div class="ticket-qr-inner">
                 {!! $qrCode->size(150)->generate($ticketData) !!}
             </div>
-            <p class="text-muted mb-3">Please present this ticket at the cinema</p>
-            <button class="btn btn-primary" onclick="window.print()">Print Ticket</button>
         </div>
+    </div>
+    <div class="ticket-footer">
+        &copy; {{ date('Y') }} Cinema Booking System. All Rights Reserved.
     </div>
 </div>
 @endsection 
