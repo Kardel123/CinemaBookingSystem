@@ -33,6 +33,9 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // Booking Routes
 Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
     Route::get('/bookings', [BookingController::class, 'index'])->name('bookings.index');
     Route::get('/bookings/create/{movieId}', [BookingController::class, 'showBookingForm'])->name('bookings.create');
     Route::post('/bookings', [BookingController::class, 'store'])->name('bookings.store');

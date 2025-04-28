@@ -15,6 +15,8 @@ return new class extends Migration
             $table->string('duration');
             $table->string('genre');
             $table->string('image_url')->nullable();
+            $table->date('release_date');
+            $table->enum('status', ['now_showing', 'coming_soon'])->default('now_showing');
             $table->decimal('price', 10, 2);
             $table->timestamps();
         });
